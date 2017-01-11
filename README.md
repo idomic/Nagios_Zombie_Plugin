@@ -1,7 +1,7 @@
 # Nagios_Zombie_Plugin
 
 check chrome or any other zombie processes (which exists over 30 minutes) within machines process list including docker!
-# Recieves arguments $1 = process name to check $2 = Warning level $3= Critical level
+Recieves arguments $1 = process name to check $2 = Warning level $3= Critical level
 
 Integration instructions:
 
@@ -35,7 +35,7 @@ Change command_line into the correct path of the script.
 
 For instance:
 #check chrome zombie processes (exists over 30 minutes) within machines process list
-# Receives arguments $1 = process name to check $2 = Warning level $3= Critical level
+#Receives arguments $1 = process name to check $2 = Warning level $3= Critical level
 define command{
 	command_name	check_chrome_proc
 	command_line	$USER1$/check_chrome_proc /opt/google/chrome 10 30
@@ -47,7 +47,7 @@ And add the relevant command, for instance:
 Service description is the string the nagios UI should display.
 check_command check_nrpe!check_chrome_proc - Bolded is the part you should set your script instead.
 
-# Check chrome zombie processes (exists over 30 minutes) within machines process list
+#Check chrome zombie processes (exists over 30 minutes) within machines process list
 define service{
 	use generic-service-without-notify
 	host_name mydtbld0178.hpeswlab.net
@@ -60,7 +60,8 @@ define service{
 	
 Finally don't forget to pull from Git and reset the Nagios process.
 
-## In case you want to add graphic representation, here's how:
+##In case you want to add graphic representation, here's how:
+
 ## Set graphic representation for your Nagios plugin
 
 Only Server side:
@@ -76,8 +77,8 @@ docker logs --tail=100 nagios_nga
 
 An instance for a regex role:
 
-# Service type: Open Chrome browsers
-#   output: Open Chrome browsers CRITICAL - 430 zombies: /opt/google/chrome processes
+#Service type: Open Chrome browsers
+#output: Open Chrome browsers CRITICAL - 430 zombies: /opt/google/chrome processes
 #/output:Open Chrome browsers.*?(\d+)zombies:.*processes/
 /output:Open Chrome browsers.*?(\d+).*?zombies:.*?processes/
 and push @s, [ 'openChromeBrowsers',
@@ -87,5 +88,4 @@ and push @s, [ 'openChromeBrowsers',
 
 
 # If you have any updates or improvements feel free to send merge requests.
-# For any information you can email me @ michael.ido@gmail.com
-# Enjoy!
+# For any information you can email me @ michael.ido@gmail.com - Enjoy!
