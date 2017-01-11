@@ -60,7 +60,7 @@ define service{
 	
 Finally don't forget to pull from Git and reset the Nagios process.
 
-##In case you want to add graphic representation, here's how:
+/*In case you want to add graphic representation, here's how:*/
 
 ## Set graphic representation for your Nagios plugin
 
@@ -77,8 +77,8 @@ docker logs --tail=100 nagios_nga
 
 An instance for a regex role:
 
-##Service type: Open Chrome browsers
-##output: Open Chrome browsers CRITICAL - 430 zombies: /opt/google/chrome processes
+/*Service type: Open Chrome browsers
+output: Open Chrome browsers CRITICAL - 430 zombies: /opt/google/chrome processes*/
 /output:Open Chrome browsers.*?(\d+).*?zombies:.*?processes/
 and push @s, [ 'openChromeBrowsers',
                [ 'openChromeBrowsers', GAUGE, $1 ] ];
