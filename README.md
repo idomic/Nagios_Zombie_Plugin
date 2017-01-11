@@ -1,6 +1,6 @@
 # Nagios_Zombie_Plugin
 
-check chrome or any other zombie processes (which exists over 30 minutes) within machines process list including docker!
+check any zombie processes, for instance, chrome processes (which exists over 30 minutes) within machines process list including docker!
 Recieves arguments $1 = process name to check $2 = Warning level $3= Critical level
 
 Integration instructions:
