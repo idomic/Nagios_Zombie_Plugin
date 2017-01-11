@@ -87,7 +87,7 @@ and push @s, [ 'openChromeBrowsers',
 
 Here's an example of the main graphs after integration of the regex:
 
-![alt tag](https://github.com/idomic/Nagios_Zombie_Plugin/blob/master/Main_Nagios_Ui.PNG)
+![alt tag](https://github.com/idomic/Nagios_Zombie_Plugin/blob/master/Nagios_Graph_Image.PNG)
 
 
 # If you have any updates or improvements feel free to send merge requests.
