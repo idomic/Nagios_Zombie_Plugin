@@ -34,8 +34,8 @@ Change command_name of check_chrome_proc into your script name.
 Change command_line into the correct path of the script.
 
 For instance:
-#check chrome zombie processes (exists over 30 minutes) within machines process list
-#Receives arguments $1 = process name to check $2 = Warning level $3= Critical level
+/*check chrome zombie processes (exists over 30 minutes) within machines process list
+Receives arguments $1 = process name to check $2 = Warning level $3= Critical level*/
 define command{
 	command_name	check_chrome_proc
 	command_line	$USER1$/check_chrome_proc /opt/google/chrome 10 30
@@ -59,9 +59,11 @@ define service{
 	}
 	
 Finally don't forget to pull from Git and reset the Nagios process.
+Here's an example of Main Nagios UI with the new plugin:
+
+![alt tag](https://github.com/idomic/Nagios_Zombie_Plugin/blob/master/Main_Nagios_Ui.PNG)
 
 /*In case you want to add graphic representation, here's how:*/
-
 ## Set graphic representation for your Nagios plugin
 
 Only Server side:
@@ -83,7 +85,9 @@ output: Open Chrome browsers CRITICAL - 430 zombies: /opt/google/chrome processe
 and push @s, [ 'openChromeBrowsers',
                [ 'openChromeBrowsers', GAUGE, $1 ] ];
 
+Here's an example of the main graphs after integration of the regex:
 
+![alt tag](https://github.com/idomic/Nagios_Zombie_Plugin/blob/master/Main_Nagios_Ui.PNG)
 
 
 # If you have any updates or improvements feel free to send merge requests.
