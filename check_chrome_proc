@@ -42,15 +42,15 @@ COMMAND=${cmd}
 # echo "The COUNTER is $COUNTER";
 done
 if [ $COUNTER -lt $WARNLEVEL ]; then
-        # echo "[OK]- [$COUNTER zombie chrome browsers.]"
-        echo "OK- $COUNTER zombie chrome browsers.";
+        # echo "Open Chrome browsers OK - $COUNTER zombies: $PROC_NAME processes";
+        echo "Open Chrome browsers OK - $COUNTER zombies: $PROC_NAME processes";
         exit 0;
 elif [ $COUNTER -gt $WARNLEVEL ] && [ $COUNTER -lt $CRITLEVEL ]; then
-        #echo "[WARNING]- [$COUNTER zombie chrome browsers.]"
-        echo "WARNING- $COUNTER zombie chrome browsers.";
+        #echo "Open Chrome browsers WARNING - $COUNTER zombies: $PROC_NAME processes";
+        echo "Open Chrome browsers WARNING - $COUNTER zombies: $PROC_NAME processes";
         exit 1;
 else
-        #echo "[CRITICAL]- [$COUNTER zombie chrome browsers.]"
-        echo "CRITICAL- $COUNTER zombie chrome browsers.";
+        #echo "Open Chrome browsers CRITICAL - $COUNTER zombies: $PROC_NAME processes";
+        echo "Open Chrome browsers CRITICAL - $COUNTER zombies: $PROC_NAME processes";
         exit 2;
 fi )
