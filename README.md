@@ -77,9 +77,8 @@ docker logs --tail=100 nagios_nga
 
 An instance for a regex role:
 
-#Service type: Open Chrome browsers
-#output: Open Chrome browsers CRITICAL - 430 zombies: /opt/google/chrome processes
-#/output:Open Chrome browsers.*?(\d+)zombies:.*processes/
+##Service type: Open Chrome browsers
+##output: Open Chrome browsers CRITICAL - 430 zombies: /opt/google/chrome processes
 /output:Open Chrome browsers.*?(\d+).*?zombies:.*?processes/
 and push @s, [ 'openChromeBrowsers',
                [ 'openChromeBrowsers', GAUGE, $1 ] ];
