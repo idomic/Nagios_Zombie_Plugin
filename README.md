@@ -41,7 +41,7 @@ define command{
 	command_line	$USER1$/check_chrome_proc /opt/google/chrome 10 30
 	}
 	
-Then go to the machine's file within the server for example: mydtbld0178.cfg
+Then go to the machine's file within the server for example: SOMEֹ-HOST.cfg
 
 And add the relevant command, for instance:
 Service description is the string the nagios UI should display.
@@ -50,7 +50,7 @@ check_command check_nrpe!check_chrome_proc - Bolded is the part you should set y
 #Check chrome zombie processes (exists over 30 minutes) within machines process list
 define service{
 	use generic-service-without-notify
-	host_name mydtbld0178.hpeswlab.net
+	host_name SOMEֹ-HOST
 	service_description Open Chrome browsers
 	check_command check_nrpe!check_chrome_proc
 	max_check_attempts	5
