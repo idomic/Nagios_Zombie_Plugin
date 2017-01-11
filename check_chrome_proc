@@ -1,0 +1,50 @@
+#!/bin/sh
+#Date: 08.01.17
+#Author: Ido Michael (imichael@hpe.com)
+#Version 1.0.0
+# Description: this script is measuring the amount of zombie processes - chrome by default.
+# It also can get arguments from command line:
+# $1 = process name to check
+# $2 = Warning level
+# $3= Critical level
+## set defaults
+if [ -z "$1" ] ; then
+PROC_NAME="/opt/google/chrome"
+else
+PROC_NAME=$1
+fi
+if [ -z "$2" ] ; then
+WARNLEVEL=90
+else
+WARNLEVEL=$2
+fi
+if [ -z "$3" ] ; then
+CRITLEVEL=95
+else
+CRITLEVEL=$3
+fi
+MIN=30
+SEC=$((MIN*60))
+COUNTER=0
+ps -eo etimes=,pid=,cmd= | grep $PROC_NAME | (while read sec pid; do
+COMMAND=${cmd}
+ if [ ${sec} -gt ${SEC} ]; then
+   COUNTER=$(($COUNTER + 1))
+#   echo ${pid};
+#   echo ${cmd};
+ fi
+# echo "The COUNTER is $COUNTER";
+done
+if [ $COUNTER -lt $WARNLEVEL ]; then
+        # echo "[OK]- [$COUNTER zombie chrome browsers.]"
+        echo "OK- $COUNTER zombie chrome browsers.";
+        exit 0;
+elif [ $COUNTER -gt $WARNLEVEL ] && [ $COUNTER -lt $CRITLEVEL ]; then
+        #echo "[WARNING]- [$COUNTER zombie chrome browsers.]"
+        echo "WARNING- $COUNTER zombie chrome browsers.";
+        exit 1;
+else
+        #echo "[CRITICAL]- [$COUNTER zombie chrome browsers.]"
+        echo "CRITICAL- $COUNTER zombie chrome browsers.";
+        exit 2;
+fi )
